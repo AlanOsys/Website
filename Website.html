@@ -1,0 +1,278 @@
+<!doctype html>
+
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>AlanOsys</title>
+    <meta name="description" content="A simple HTML5 Template for new projects.">
+    <meta name="author" content="SitePoint">
+
+    <meta property="og:title" content="A Basic HTML5 Template">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.sitepoint.com/a-basic-html5-template/">
+    <meta property="og:description" content="A simple HTML5 Template for new projects.">
+    <meta property="og:image" content="image.png">
+
+    <link rel="icon" href="/favicon.png">
+    <link rel="icon" href="/favicon.png" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="style.css">
+
+
+</head>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+    outline: none;
+    
+}
+
+body {
+background-color: rgb(173, 216, 230);
+
+min-height: 100vh;
+width: 100%;
+}
+
+
+#Portfolios{
+    position:absolute;
+    
+    top:150%;
+    transition: 2s;
+    
+    
+}
+#Portfolios *{
+    margin-bottom: 30px;
+    margin-left: 85px;
+}
+#Exp{
+    margin-top: 5%;
+}
+#Exp *{
+    padding-right: 5px;
+    
+}
+#MainBody {
+    
+    margin-top: 0%;
+}
+#MainBody > div{
+    
+    
+    display: inline-block;
+    width: 49%;
+    
+    
+    
+}
+.Bords *{
+    background-image: linear-gradient(to right,rgb(95, 95, 255),rgb(255, 74, 195));
+}
+
+#Bar{
+    width: 100%;
+    height: 7%;
+    background-color: rgb(100, 100, 218);
+    position: fixed;
+    top: 0%;
+    z-index: 1;
+}
+
+</style>
+<body onload="move()">
+    
+    <div id="Bar">
+        <p id="Title" style="float: left; margin-right: 5px;">Alan Osys</p>
+        <button id="home" style="float: left; margin-right: 5px;">Home</button>
+        <button id="aboutme" style="float: left; margin-right: 5px;">About Me</button>
+
+    </div>
+    <div style="width: 100%; min-height: 100vh; background-color: rgb(53, 53, 53); "></div>
+    
+    <div id="MainBody" style="margin-top: 0%;">
+        <img  src="IMG_8867.jpg" alt="Pfp" style="position: inherit; height: 350px; width: 175px;  float: left; margin-left: 100px; margin-top: 5%;">
+        
+    
+        <div id="Exp" style="width: 50%; position: inherit; margin-left: 100px;">
+            <p style="text-align: left; ">JavaScript</p>
+            <div class="Bords"style="border: solid; height: 30px;border-width: 2px;">
+                
+                <div id="JavaScript" style="width: 0px; height: 26px; background-color: rgb(113, 113, 253); text-align: right; ">0 </div>
+                
+            
+            </div>
+            <p style="text-align: left;">Java</p>
+            <div class="Bords" style="border: solid;height: 30px; border-width: 2px;">
+                <div id="Java" style="width: 0px; height: 26px; text-align: end;">0 </div>
+        
+            </div>
+            <p style="text-align: left;">Python</p>
+            <div class="Bords" style="border: solid; height: 30px; border-width: 2px;">
+                <div id="Python" style="width: 0px; height: 26px;  text-align: end;">0 </div>
+            </div>
+            <p style="text-align: left;">HTML</p>
+            <div class="Bords" style="border: solid; height: 30px; border-width: 2px;">
+                <div id="HTML" style="width: 0px; height: 26px;  text-align: end;">0 </div>
+            </div>
+            <p style="text-align: left;">CSS</p>
+            <div class="Bords" style="border: solid; height: 30px; border-width: 2px;">
+                <div id="CSS" style="width: 0px; height: 26px;  text-align: end;">0 </div>
+            </div>
+            <p style="text-align: left;">C#</p>
+            <div class="Bords" style="border: solid; height: 30px; border-width: 2px;">
+                <div id="C#" style="width: 0px; height: 26px;  text-align: end;">0 </div>
+            </div>
+            
+            
+        </div>
+    </div>
+
+    
+    <div id="Portfolios" style="background-color: rgb(173, 182, 230); width: 100%;">
+        <div id="minesweeper">
+            <span id="ms" href="minesweeper.html">MineSweeper:</span>
+            <p>This is a Minesweeper clone I programmed in JavaScript, it taught me some pretty indepth JS.</p>
+            <img id="msimg"src="sweeper.jpg" alt="Sweeper" style="width: 200px; height:200px;" href="minesweeper.html">
+        </div>
+        <div id="ttt">
+            <span id="ttt" href="ttt.html">Tik Tak Toe:</span>
+            <p>This is a Tik Tak Toe game I programmed in JavaScript. It helped me learn some cool CSS</p>
+            <img id="tttimg"src="ttt.png" alt="ttt" style="width: 200px; height:200px;" href="ttt.html">
+        </div>
+        <div id="wordlenot">
+            <span id="wordlenot" href="wordlenot.html">Not Wordle:</span>
+            <p>This is a Wordle clone I programmed in my spare time. It took me about 3 days to finalise.</p>
+            <img id="wordlenotimg" src="wordlenot.jpg" alt="Sweeper" style="width: 200px; height:200px;" href="wordlenot.html">
+        </div>
+        <div id="minesweeper">
+            <span id="ms" href="minesweeper.html">MineSweeper:</span>
+            <p>This is a Minesweeper clone I programmed in JavaScript, it taught me some pretty indepth JS.</p>
+            <img src="sweeper.jpg" alt="Sweeper" style="width: 200px; height:200px;" href="minesweeper.html">
+        </div>
+    </div>
+    
+    
+    <script>
+        counter = 0;
+        var intervalId = window.setInterval(function(){
+        rings = document.getElementById("rings");
+        rains = document.getElementById("rains");
+        
+        for(let i = 0; i < 5; i++){
+            counter++;
+            if(counter > 10){
+                var el = document.getElementById(i.toString())
+                el.remove()
+                
+            }
+            
+            ring = document.createElement("div");
+            drop = document.createElement("div");
+            drop.style.height = '50px';
+            drop.style.width = '2px';
+            drop.className = 'rains';
+            ring.id = i.toString();
+            drop.id = i.toString();
+            
+            ring.className = 'rings';
+            ring.style.borderRadius = '50%';
+            let rand = Math.floor(Math.random()*50) + 10;
+            let randx = (Math.floor(Math.random()*80) + 10) + '%';
+            drop.style.left = randx;
+            drop.style.top = (rand - 13) + '%';
+            ring.style.left = randx;
+            ring.style.top = rand + '%';
+            rings.appendChild(ring);
+            rains.appendChild(drop);
+            console.log(rains.childElementCount)
+        }
+        
+
+}, 300);
+        
+        document.getElementById("ms").onclick = function sweeper(){
+            window.location.href = "minesweeper.html";
+        }
+        document.getElementById("msimg").onclick = function sweeper(){
+            window.location.href = "minesweeper.html";
+        }
+        document.getElementById("ttt").onclick = function ttt(){
+            window.location.href = "ttt.html";
+        }
+        document.getElementById("tttimg").onclick = function ttt(){
+            window.location.href = "ttt.html";
+        }
+        document.getElementById("wordlenot").onclick = function worldenot(){
+            window.location.href = "wordlenot.html";
+        }
+        document.getElementById("wordlenotimg").onclick = function wordlenot(){
+            window.location.href = "wordlenot.html";
+        }
+        
+        
+
+
+
+
+function move() {
+    var Java = document.getElementById("Java");   
+    var JavaScript = document.getElementById("JavaScript");
+    var Python = document.getElementById("Python");
+    var HTMl = document.getElementById("HTML");
+    var CSs = document.getElementById("CSS");
+    var Cs = document.getElementById('C#');
+
+    var width = 1;
+    var id = setInterval(frame, 10);
+    function frame() {
+        if (width >= 100) {
+            clearInterval(id);
+        } else {
+            width++; 
+            if (width <= 90){
+                Java.style.width = width + '%'; 
+                Java.innerHTML = width + '%';
+            }
+            if(width <= 80){
+                JavaScript.style.width = width + '%'; 
+                JavaScript.innerHTML = width + '%';
+            }
+            if(width <= 60){
+                
+                Python.style.width = width + '%';
+                Python.innerHTML = width + '%';
+            }
+            if(width <= 90){
+                
+                HTMl.style.width = width + '%';
+                HTMl.innerHTML = width + '%';
+            }
+            if(width <= 80){
+                
+                CSs.style.width = width + '%';
+                CSs.innerHTML = width + '%';
+            }
+            if(width <= 60){
+                Cs.style.width = width + '%';
+                Cs.innerHTML = width+'%';
+            }
+                
+        }
+    }
+}
+    </script>
+    
+
+</body>
+
+</html>
