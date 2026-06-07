@@ -3,114 +3,213 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Website</title>
-<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<title>Alan Osys</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --bg: #dddddd;
+    --fg: #000000;
+    --muted: #555555;
+    --rule: #aaaaaa;
+    --font: 'Courier New', Courier, monospace;
+    --pad: clamp(1rem, 4vw, 2rem);
+  }
 
   body {
-    background: #dddddd;
-    color: #000000;
-    font-family: 'Courier New', monospace;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font);
+    min-height: 100vh;
   }
-  #desc{
-    left: 5px;
-    top: 5px;
-    position: relative;
-  }
-  #exp{
-    left: 5px;
-    top: 370px;
-    position: absolute;
-  }
-  #interests{
-    left: 5px;
-    top: 610px;
-    position: absolute;
-    width: 50%;
-  }
-  #Thesis{
-    left: 50%;
-    position: absolute;
-    top: 5px;
-  }
-  #Others{
-    left: 50%;
-    position: absolute;
-    top: 300px;
-  }
-  #Others p{
-    font-size: 20px;
-  }
-  #Thesis p{
-    font-size: 20px;
-  }
-#links{
-    left: 5px;
-    position: absolute;
-    top: 220px;
-}
-#links a{
-    display: block;
-}
-</style>
 
+  /* ── LAYOUT ── */
+  .page {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: var(--pad);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "hero    hero"
+      "links   links"
+      "exp     thesis"
+      "research papers";
+    gap: clamp(1.5rem, 4vw, 2.5rem) clamp(1.5rem, 4vw, 3rem);
+  }
+
+  @media (max-width: 640px) {
+    .page {
+      grid-template-columns: 1fr;
+      grid-template-areas:
+        "hero"
+        "links"
+        "exp"
+        "research"
+        "thesis"
+        "papers";
+    }
+  }
+
+  /* ── SECTION BASE ── */
+  section { display: flex; flex-direction: column; gap: 0.75rem; }
+
+  h1 {
+    font-size: clamp(2rem, 8vw, 3.5rem);
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+  }
+
+  h2 {
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    font-weight: 700;
+    border-bottom: 2px solid var(--fg);
+    padding-bottom: 0.3rem;
+    margin-bottom: 0.25rem;
+  }
+
+  p, li { font-size: clamp(0.85rem, 2.5vw, 1rem); line-height: 1.6; }
+
+  /* ── HERO ── */
+  .hero { grid-area: hero; }
+  .hero p { max-width: 60ch; color: var(--muted); margin-top: 0.75rem; }
+
+  /* ── LINKS ── */
+  .links { grid-area: links; }
+  .link-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1.5rem;
+    margin-top: 0.25rem;
+  }
+  .link-row a {
+    color: var(--fg);
+    text-decoration: none;
+    font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+    border-bottom: 1px solid var(--fg);
+    padding-bottom: 1px;
+    transition: opacity 0.15s;
+  }
+  .link-row a:hover { opacity: 0.5; }
+
+  /* ── EXPERIENCE ── */
+  .exp { grid-area: exp; }
+
+  /* ── RESEARCH ── */
+  .research { grid-area: research; }
+
+  /* ── THESIS ── */
+  .thesis { grid-area: thesis; }
+
+  /* ── PAPERS ── */
+  .papers { grid-area: papers; }
+
+  /* ── ENTRY (bullet item) ── */
+  .entry {
+    display: flex;
+    gap: 0.5rem;
+    align-items: baseline;
+  }
+  .entry::before {
+    content: ">";
+    flex-shrink: 0;
+    font-weight: 700;
+  }
+
+  /* ── PAPER / THESIS CARD ── */
+  .card {
+    border-top: 1px solid var(--rule);
+    padding-top: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .card a {
+    color: var(--fg);
+    font-weight: 700;
+    font-size: clamp(0.9rem, 2.5vw, 1rem);
+    text-underline-offset: 3px;
+  }
+  .card p { color: var(--muted); }
+
+  hr.rule {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin: 0.5rem 0;
+  }
+</style>
 </head>
 <body>
-    <div id="desc">
-    <p style="font-size: 50px;font-weight: bolder;">Alan Osys</p>
-    <p style="font-size: 20px; width: 45%;">I am a PhD researcher at London South Bank University. 
-        My research focuses on multi-site poistron emission tomography harmonisation. 
-        My work entails manipulating the process of reconstruction as well as post-reconstruction image harmonisation through machine learning methods.
-        My background is in computer science in which I have a bachelor and a research masters degree.
+<main class="page">
+
+  <!-- HERO -->
+  <section class="hero">
+    <h1>Alan Osys</h1>
+    <p>
+      PhD researcher at London South Bank University. My research focuses on
+      multi-site positron emission tomography harmonisation — manipulating
+      reconstruction processes and applying post-reconstruction image
+      harmonisation through machine learning. Background in computer science
+      (BSc &amp; Research MSc).
     </p>
-    
-    
-    </div>
-    <div id="links">
-        <p style="font-size: 50px;">Links</p>
-    <a style="font-size: 20px;margin-bottom: 15px;" href="https://github.com/AlanOsys">Github</a>
-    <a style="font-size: 20px;margin-bottom: 15px;" href="https://www.linkedin.com/in/alan-osys-0a9873229">Linkedin</a>
-    </div>
-    <div id="exp">
-    <p style="font-size: 50px;">Experience:</p>
-    <p style="font-size: 20px;margin-bottom: 15px;">> London South Bank University - PhD (current).</p>
-    <p style="font-size: 20px;margin-bottom: 15px;">> University of Kent - Bachelor in Computer Science (1st).</p>
-    <p style="font-size: 20px;margin-bottom: 15px;">> University of Kent - Research Masters in Computer Science.</p>
-    <p style="font-size: 20px;margin-bottom: 15px;">> 12 years of programming experience - Most proficient in python.</p>
-    </div>
+  </section>
 
-    <div id="interests">
-    <p style="font-size: 50px;">Research:</p>
-    <p style="font-size: 20px;margin-bottom: 15px;">> Current Machine learning - Flow models, Diffusion models.</p>
-    <p style="font-size: 20px;margin-bottom: 15px;">> Past Machine learning - Transformers, Generative Adversarial Networks, Variational Autoencoders.</p>
-    <p style="font-size: 20px;margin-bottom: 15px;">> Medical imaging - Positron Emission Tomography, Multi-site Harmonisation, Denoising.</p>
+  <!-- LINKS -->
+  <section class="links">
+    <h2>Links</h2>
+    <div class="link-row">
+      <a href="https://github.com/AlanOsys" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/alan-osys-0a9873229" target="_blank" rel="noopener">LinkedIn</a>
     </div>
+  </section>
 
-    <div id="Thesis">
-    <p style="font-size: 50px;">Thesis:</p>
-    <p>Placeholder thesis:<a href="https://example.com/paper.pdf">Game entity blah blah</a></p>
-    <p style="font-size: 20px;">This thesis explores using a Transformer model to generate better Pokemon metagames, 
-        with more balanced win rates and greater diversity. 
-        Two methods were proposed to achieve this: layer pruning (pruning layers from the Transformer) 
-        and a multi-objective genetic algorithm for selecting optimal Pokemon sets. 
-        Layer pruning proved critical for maintaining diversity over time, with every unpruned model performing significantly worse, 
-        and combining both methods together yielded the best overall results.</p>
+  <!-- EXPERIENCE -->
+  <section class="exp">
+    <h2>Experience</h2>
+    <div class="entry"><span>London South Bank University — PhD (current)</span></div>
+    <div class="entry"><span>University of Kent — BSc Computer Science (1st Class)</span></div>
+    <div class="entry"><span>University of Kent — Research MSc Computer Science</span></div>
+    <div class="entry"><span>12 years programming experience; most proficient in Python</span></div>
+  </section>
+
+  <!-- RESEARCH -->
+  <section class="research">
+    <h2>Research</h2>
+    <p style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);">Current</p>
+    <div class="entry"><span>Flow models, Diffusion models</span></div>
+    <hr class="rule">
+    <p style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);">Past ML</p>
+    <div class="entry"><span>Transformers, GANs, Variational Autoencoders</span></div>
+    <hr class="rule">
+    <p style="font-size:0.8rem; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);">Medical imaging</p>
+    <div class="entry"><span>Positron Emission Tomography, Multi-site Harmonisation, Denoising</span></div>
+  </section>
+
+  <!-- THESIS -->
+  <section class="thesis">
+    <h2>Thesis</h2>
+    <div class="card">
+      <a href="https://example.com/paper.pdf" target="_blank" rel="noopener">Game entity blah blah</a>
+      <p>
+        Explores using a Transformer model to generate more balanced Pokémon metagames
+        with greater diversity. Two methods were proposed: layer pruning and a
+        multi-objective genetic algorithm for optimal set selection. Layer pruning proved
+        critical for maintaining diversity over time; combining both methods yielded the
+        best results.
+      </p>
     </div>
+  </section>
 
-    <div id="Others">
-    <p style="font-size: 50px;">Papers:</p>
-    <div>
-        <p>Placeholder paper:<a href="https://example.com/paper.pdf">Paper Title Here</a></p>
-        <p>This is a description used as a placeholder for the paper that I need to elong</p>
+  <!-- PAPERS -->
+  <section class="papers">
+    <h2>Papers</h2>
+    <div class="card">
+      <a href="https://example.com/paper.pdf" target="_blank" rel="noopener">Paper Title Here</a>
+      <p>This is a description used as a placeholder for the paper that I need to elongate.</p>
     </div>
-    
-    </div>
+  </section>
 
-<script>
-if(window.innerWidth < window.innerHeight){
-
-}
-</script>
+</main>
 </body>
 </html>
